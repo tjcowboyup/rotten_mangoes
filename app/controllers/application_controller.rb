@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def restrict_admin
-    unless current_user && current_user.admin
+    unless current_user && current_user.is_admin
       flash[:alert] = "You must be an admin to view that page."
       redirect_to movies_path
     end

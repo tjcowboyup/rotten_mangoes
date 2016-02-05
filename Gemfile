@@ -50,3 +50,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 # gem "rmagick", :require => 'RMagick'
 gem 'mini_magick'
+
+# Kaminari
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem 'kaminari'
