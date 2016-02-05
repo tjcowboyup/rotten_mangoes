@@ -14,8 +14,10 @@ class Movie < ActiveRecord::Base
   validates :description,
     presence: true
 
-  validates :poster_image_url,
+  validates :image,
     presence: true
+  validate :image_size_validation
+
 
   validates :release_date,
     presence: true
@@ -39,5 +41,9 @@ class Movie < ActiveRecord::Base
       errors.add(:release_date, "should be in the past") if release_date > Date.today
     end
   end
+
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
+  end  
 
 end
