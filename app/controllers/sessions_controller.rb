@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:admin_user_id] = nil if session[:admin_user_id]    
-    redirect_to movies_path, notice: "Adios!"
+    redirect_to movies_path, notice: "Ciao!"
   end
     
 end

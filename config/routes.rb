@@ -1,9 +1,9 @@
 RottenMangoes::Application.routes.draw do
+
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
@@ -11,6 +11,8 @@ RottenMangoes::Application.routes.draw do
   end
   
   root to: 'movies#index'
+
+  end
   # get "reviews/new"
   # get "reviews/create"
   # get "new/create"
@@ -79,4 +81,3 @@ RottenMangoes::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
