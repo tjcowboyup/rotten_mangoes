@@ -45,10 +45,21 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, notice: "Destroyed #{@user.firstname}'s account."
     end
 
+  def switch_to_user
+    user = User.find(params[:user_id])
+    session[:user_id] = user.id
+    redirect_to movies_path, notice: "You are viewing the site as #{user.firstname}."
+  end
+
+  def switch_to_admin
+    session[:user_id] = session[:admin_user_id]
+    redirect_to admin_users_path, notice: "You are in Admin view."
+  end
+
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :is_admin)
   end
   
 end
