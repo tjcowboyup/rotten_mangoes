@@ -1,9 +1,12 @@
 <footer>
   <hr>
   <small>
-    <% if current_user %>
-      Signed in as <%= current_user.email %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
-      <% if current_user.is_admin %>| <%= link_to  "Admin Area", admin_users_path %><% end %>
+    <% if admin_logged_in? && admin_viewing_as_user? %>
+      You are viewing the site as <%= current_user.full_name %> - <%= link_to "Switch to Admin's View", admin_user_switch_to_admin_path(session[:user_id]), method: :delete %>
+    <% elsif admin_logged_in? %>
+      <%= link_to "Admin Area", admin_users_path %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+    <% elsif current_user %>
+      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
     <% else %>
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
