@@ -12,18 +12,7 @@
   </div>
 
   <div>
-    <!-- <p><%= s.label :min_runtime, "Min Runtime" %> - <%= s.text_field :min_runtime, size:10 %></p>
-    <p><%= s.label :max_runtime, "Max Runtime" %> - <%= s.text_field :max_runtime, size:10 %></p> -->
     <p><%= s.label :runtime, "Running time" %> - <%= s.select :runtime, options_for_select([['Under 90 minutes', "< 90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]), include_blank: true %></p>
-    </div>
-  
-    <div>
-      <%= s.submit "Search" %>
-    </div>
-  
- -<% end %> 
- +<% end %>
-
   </div>
 
   <div>

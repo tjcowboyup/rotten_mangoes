@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:admin_user_id] = user.id if user.is_admin == true      
       redirect_to movies_path, notice: "Welcome back, #{user.firstname}!"    
     else
-      flash.now[:alert] = "Log in failed..."
+      flash.now[:alert] = "Log in failed!"
       render :new
     end
   end

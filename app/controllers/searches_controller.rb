@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.create(search_params)
-    binding.pry
+    # binding.pry
     redirect_to @search
   end
 

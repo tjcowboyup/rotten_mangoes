@@ -1,7 +1,7 @@
   class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    # @movies = Movie.all
     # if params[:search]
     #   @movies = Movie.search(params[:search]).order("created_at DESC")
     # else
@@ -54,7 +54,6 @@
     params.require(:movie).permit(
       :title, :release_date, :director, :runtime_in_minutes, :image, :description
     )
-    # :poster_image_url,
   end
-
+    # :poster_image_url,
 end
