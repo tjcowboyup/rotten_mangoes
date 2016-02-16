@@ -1,0 +1,11 @@
+<%= link_to "Back to all movies", movies_path %>
+<h1>Search Result</h1>
+<% if @search.search_movies.empty? %>
+  <p>No Records Found</p>
+<% else %>
+  <% @search.search_movies.each do |movie| %>
+    <p><%= movie.title %></p>
+    <p><%= movie.director %></p>
+    <p><%= movie.runtime_in_minutes %></p>
+  <% end %>
+<% end %>

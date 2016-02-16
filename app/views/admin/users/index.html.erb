@@ -6,7 +6,7 @@
 <%= paginate @users %>
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.full_name, admin_user_path(user) %></td>
+    <td><%= link_to user.full_name, admin_user_path(user) %></td>
     <td><%= user.email %></td>
     <td><%= link_to "Switch to User's View", admin_user_switch_to_user_path(user), method: :post %></td>
     <td><%= link_to "Edit", edit_admin_user_path(user) %></td>

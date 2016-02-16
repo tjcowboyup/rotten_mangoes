@@ -1,0 +1,13 @@
+one:
+  title: MyString
+  director: MyString
+  min_runtime: 1
+  max_runtime: 1
+
+two:
+  title: MyString
+  director: MyString
+  min_runtime: 1
+  max_runtime: 1
+
+//api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

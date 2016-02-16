@@ -33,6 +33,15 @@ class Movie < ActiveRecord::Base
       reviews.sum(:rating_out_of_ten)/reviews.size
     end
   end
+  
+  def self.search(search)
+    # where("title LIKE ? OR director LIKE ?", "%#{search}%", "%#{search}%")
+    if search
+      where(["title LIKE ? OR director LIKE ?", "%#{search}%", "%#{search}%"])
+    else
+      all.order('created_at DESC')
+    end
+  end
 
   protected
 
